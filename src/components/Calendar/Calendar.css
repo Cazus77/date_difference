@@ -2,54 +2,110 @@ select {
     padding: 3px 6px;
 }
 
-.calendar header {
-    display: flex;
-    justify-content: center;
-}
+
+/*.calendar header {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
 
 .calendar header button,
 .calendar header select {
     margin: 0 4px;
 }
 
-.calendar table {
-    table-layout: fixed;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: auto;
+.header{
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.calendar th {
-    vertical-align: middle;
+.wrapper{
+    display: flex;
+    width: 250px;
+}
+
+/* дни недели */
+.weekdays{
+    margin: 0;
+    padding: 16px 0;
+    /*background-color: #dddddd;*/
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: left;
+}
+
+
+.weekdays li{
+    /*display: inline-block;*/
+    /*flex: 0 0 calc(100% / 7);*/
+    text-align: left;
+    padding: 7px;
+    margin-left: 20px;
+    list-style: none;
+}
+
+/* дни */
+.days{
+    margin: 0;
+    padding: 16px 0;
+    /*background-color: #eeeeee;*/
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-content: center;
+    height: 320px;
+}
+
+.days li{
+    padding: 8px;
+    list-style: none;
+    display: inline-block;
+    /*flex: 0 0 calc(100% / 7);*/
     text-align: center;
-    height: 27px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 16px
+;
+}
+li.noday{
+    color: #999999;
+    font-weight: lighter;
 }
 
-.calendar .day {
-    padding: 2px 4px;
-    vertical-align: middle;
-    text-align: center;
-    border: 2px solid transparent;
-}
 
-.calendar .day:hover {
-    background-color: #eaeaea;
-    cursor: pointer;
-}
+                    /*                              */
 
-.calendar .day.selected {
-    border: 2px solid dodgerblue;
-}
 
-.calendar .day.today {
-    background-color: dodgerblue;
-    color: white;
-}
 
-.calendar .day.today:hover {
-    background-color: #0081ff;
-}
+/*.calendar .day {*/
+/*    padding: 2px 4px;*/
+/*    vertical-align: middle;*/
+/*    text-align: center;*/
+/*    border: 2px solid transparent;*/
+/*}*/
 
-.calendar .day.today.selected {
-    border: 2px solid lightgray;
-}
+/*.calendar .day:hover {*/
+/*    background-color: #eaeaea;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.calendar .day.selected {*/
+/*    border: 2px solid dodgerblue;*/
+/*}*/
+
+/*.calendar .day.today {*/
+/*    background-color: dodgerblue;*/
+/*    color: white;*/
+/*}*/
+
+/*.calendar .day.today:hover {*/
+/*    background-color: #0081ff;*/
+/*}*/
+
+/*.calendar .day.today.selected {*/
+/*    border: 2px solid lightgray;*/
+/*}*/

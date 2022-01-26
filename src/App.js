@@ -18,12 +18,12 @@ function App() {
   return (
     <div className="block">
       <h1 className="description">Разность дат по календарю</h1>
+      <DateDifferenceContainer />
       <div className="block__calendar">
         <PrevMonthButtonContainer year={year} month={month} setData={setData} />
         <CalendarContainer data={data} />
         <NextMonthButtonContainer year={year} month={month} setData={setData} />
       </div>
-      <DateDifferenceContainer />
     </div>
   );
 }
