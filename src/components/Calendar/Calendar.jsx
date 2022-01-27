@@ -57,9 +57,7 @@ function Calendar({
                   {date.getDate()}
                 </li>
               ) : (
-                <li key={index} className="noday">
-                  {0}
-                </li>
+                <li key={index} className="noday" />
               )
             )}
           </ul>
