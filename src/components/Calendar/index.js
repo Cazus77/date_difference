@@ -44,7 +44,6 @@ export function getDaysInMonth(date) {
   }
 }
 
-console.log();
 export function getDayOfWeek(date) {
   const dayOfWeek = date.getDay();
 
@@ -80,6 +79,14 @@ export const monthText = (month, array) => {
   }
   return array[month];
 };
+export const monthNum = (month) => {
+  if (month === 12) {
+    return 0;
+  } else if (month === -1) {
+    return 11;
+  }
+  return month;
+};
 
 export const yearText = (year, month) => {
   if (month === 12) {
@@ -89,18 +96,3 @@ export const yearText = (year, month) => {
   }
   return year;
 };
-// for (let i = 0; i < (daysInMonth + monthStartsOn) / DAYS_IN_WEEK; i++) {
-//   result[i] = [];
-//
-//   for (let j = 0; j < DAYS_IN_WEEK; j++) {
-//     if (i === 0 && j < monthStartsOn) {
-//       console.log(monthStartsOn);
-//       result[i][j] = new Date(year, month, -1); //undefined; //;||
-//       console.log(result[i][j]);
-//     } else if (day > daysInMonth) {
-//       result[i][j] = new Date(year, month, day++); //undefined; //;|| day > daysInMonth
-//     } else {
-//       result[i][j] = new Date(year, month, day++);
-//     }
-//   }
-// }

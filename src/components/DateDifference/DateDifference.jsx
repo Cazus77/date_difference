@@ -6,7 +6,11 @@ export default function DateDifference({ result, value, handleInput }) {
       {result ? (
         <input value={result} />
       ) : (
-        <input value={value} onChange={(event) => handleInput(event)} />
+        <input
+          value={value}
+          onChange={(event) => handleInput(event)}
+          placeholder="разница в днях"
+        />
       )}
     </>
   );

@@ -47,6 +47,7 @@ export default function CalendarContainer({ data }) {
     <>
       <Calendar
         year={calendar.yearText(year, month - 1)}
+        month={calendar.monthNum(month - 1)}
         monthText={calendar.monthText(month - 1, monthNames)}
         monthData={calendar.getMonthData(year, month - 1)}
         weekDayNames={weekDayNames}
@@ -57,6 +58,7 @@ export default function CalendarContainer({ data }) {
       />
       <Calendar
         year={year}
+        month={calendar.monthNum(month)}
         monthText={monthNames[month]}
         monthData={calendar.getMonthData(year, month)}
         currentDate={currentDate}
@@ -68,6 +70,7 @@ export default function CalendarContainer({ data }) {
       />
       <Calendar
         year={calendar.yearText(year, month + 1)}
+        month={calendar.monthNum(month + 1)}
         monthText={calendar.monthText(month + 1, monthNames)}
         monthData={calendar.getMonthData(year, month + 1)}
         weekDayNames={weekDayNames}
