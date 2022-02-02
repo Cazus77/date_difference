@@ -61,8 +61,8 @@ export function getMonthData(year, month) {
     result[i] = [];
 
     for (let j = 0; j < DAYS_IN_WEEK; j++) {
-      if ((i === 0 && j < monthStartsOn) || day > daysInMonth) {
-        result[i][j] = undefined;
+      if (monthStartsOn > 0 && i === 0 && j < monthStartsOn) {
+        result[i][j] = new Date(year, month, day - (monthStartsOn - j));
       } else {
         result[i][j] = new Date(year, month, day++);
       }
@@ -78,6 +78,14 @@ export const monthText = (month, array) => {
     return array[11];
   }
   return array[month];
+};
+export const monthNum = (month) => {
+  if (month === 12) {
+    return 0;
+  } else if (month === -1) {
+    return 11;
+  }
+  return month;
 };
 
 export const yearText = (year, month) => {

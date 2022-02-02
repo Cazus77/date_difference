@@ -5,6 +5,7 @@ import classnames from "classnames";
 
 function Calendar({
   year,
+  month,
   monthText,
   weekDayNames,
   handleDayClick,
@@ -16,44 +17,45 @@ function Calendar({
 }) {
   return (
     <div className="calendar">
-      <header>
-        <span>{monthText}</span> <span>{year}</span>
+      <header className="header">
+        <span className="month">{monthText}</span>
+        <span className="year">{year}</span>
       </header>
-      <table>
-        <thead>
-          <tr>
-            {weekDayNames.map((name) => (
-              <th key={name}>{name}</th>
-            ))}
-          </tr>
-        </thead>
 
-        <tbody>
-          {monthData.map((week, index) => (
-            <tr key={index} className="week">
-              {week.map((date, index) =>
-                date ? (
-                  <td
-                    key={index}
-                    className={classnames("day", {
-                      today: calendar.areEqual(date, currentDate),
-                      selected:
-                        calendar.areEqual(date, fromDate) ||
-                        calendar.areEqual(date, beforeDate) ||
-                        calendar.areEqual(date, inputValue),
-                    })}
-                    onClick={(event) => handleDayClick(event, date)}
-                  >
-                    {date.getDate()}
-                  </td>
-                ) : (
-                  <td key={index} />
-                )
-              )}
-            </tr>
+      <div className="wrapper">
+        <ul className="weekdays">
+          {weekDayNames.map((name) => (
+            <li key={name}>{name}</li>
           ))}
-        </tbody>
-      </table>
+        </ul>
+
+        {monthData.map((week, index) => (
+          <ul key={index} className="days">
+            {week.map((date, index) =>
+              date ? (
+                <li
+                  key={index}
+                  className={classnames("day", {
+                    day_not_month: date.getMonth() !== month,
+                    today: calendar.areEqual(date, currentDate),
+                    selected:
+                      (calendar.areEqual(date, fromDate) &&
+                        date.getMonth() === month) ||
+                      (calendar.areEqual(date, beforeDate) &&
+                        date.getMonth() === month) ||
+                      calendar.areEqual(date, inputValue),
+                  })}
+                  onClick={(event) => handleDayClick(event, date)}
+                >
+                  {date.getDate()}
+                </li>
+              ) : (
+                <li key={index} className="day" />
+              )
+            )}
+          </ul>
+        ))}
+      </div>
     </div>
   );
 }

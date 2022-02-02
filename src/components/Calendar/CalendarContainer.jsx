@@ -27,12 +27,13 @@ export default function CalendarContainer({ data }) {
   const handleDayClick = (event, date) => {
     let classNameSelect = event.target.className;
 
-    if (!fromDate) {
+    if (!fromDate && classNameSelect !== "day selected") {
       dispatch({ type: SELECT_FROM_DATA, payload: date });
     } else if (
       calendar.areEqual(date, fromDate) &&
       classNameSelect === "day selected"
     ) {
+      console.log(beforeDate);
       dispatch({ type: DELETE_FROM_DATA, payload: null });
     } else if (fromDate && !beforeDate) {
       dispatch({ type: SELECT_BEFORE_DATA, payload: date });
@@ -43,35 +44,39 @@ export default function CalendarContainer({ data }) {
       dispatch({ type: DELETE_BEFORE_DATA, payload: null });
     }
   };
+
   return (
     <>
       <Calendar
         year={calendar.yearText(year, month - 1)}
+        month={calendar.monthNum(month - 1)}
         monthText={calendar.monthText(month - 1, monthNames)}
+        monthData={calendar.getMonthData(year, month - 1)}
         weekDayNames={weekDayNames}
         handleDayClick={handleDayClick}
-        monthData={calendar.getMonthData(year, month - 1)}
         fromDate={fromDate}
         beforeDate={beforeDate}
         inputValue={inputValue}
       />
       <Calendar
         year={year}
+        month={calendar.monthNum(month)}
         monthText={monthNames[month]}
-        weekDayNames={weekDayNames}
-        currentDate={currentDate}
-        handleDayClick={handleDayClick}
         monthData={calendar.getMonthData(year, month)}
+        currentDate={currentDate}
+        weekDayNames={weekDayNames}
+        handleDayClick={handleDayClick}
         fromDate={fromDate}
         beforeDate={beforeDate}
         inputValue={inputValue}
       />
       <Calendar
         year={calendar.yearText(year, month + 1)}
+        month={calendar.monthNum(month + 1)}
         monthText={calendar.monthText(month + 1, monthNames)}
+        monthData={calendar.getMonthData(year, month + 1)}
         weekDayNames={weekDayNames}
         handleDayClick={handleDayClick}
-        monthData={calendar.getMonthData(year, month + 1)}
         fromDate={fromDate}
         beforeDate={beforeDate}
         inputValue={inputValue}
