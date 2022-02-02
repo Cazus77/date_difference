@@ -27,12 +27,13 @@ export default function CalendarContainer({ data }) {
   const handleDayClick = (event, date) => {
     let classNameSelect = event.target.className;
 
-    if (!fromDate) {
+    if (!fromDate && classNameSelect !== "day selected") {
       dispatch({ type: SELECT_FROM_DATA, payload: date });
     } else if (
       calendar.areEqual(date, fromDate) &&
       classNameSelect === "day selected"
     ) {
+      console.log(beforeDate);
       dispatch({ type: DELETE_FROM_DATA, payload: null });
     } else if (fromDate && !beforeDate) {
       dispatch({ type: SELECT_BEFORE_DATA, payload: date });
@@ -43,6 +44,7 @@ export default function CalendarContainer({ data }) {
       dispatch({ type: DELETE_BEFORE_DATA, payload: null });
     }
   };
+
   return (
     <>
       <Calendar
