@@ -1,5 +1,5 @@
 import React from "react";
-import * as calendar from "./index";
+import * as calendar from "./CalendarFunction";
 import Calendar from "./Calendar";
 import { useDispatch, useSelector } from "react-redux";
 import {

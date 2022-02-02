@@ -1,6 +1,6 @@
 import React from "react";
 import "./Calendar.css";
-import * as calendar from "./index";
+import * as calendar from "./CalendarFunction";
 import classnames from "classnames";
 
 function Calendar({
