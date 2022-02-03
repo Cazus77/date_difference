@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/date_difference/static/css/main.9cb4cc29.css",
+    "main.js": "/date_difference/static/js/main.20b8f2ab.js",
+    "index.html": "/date_difference/index.html",
+    "main.9cb4cc29.css.map": "/date_difference/static/css/main.9cb4cc29.css.map",
+    "main.20b8f2ab.js.map": "/date_difference/static/js/main.20b8f2ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9cb4cc29.css",
+    "static/js/main.20b8f2ab.js"
+  ]
+}
